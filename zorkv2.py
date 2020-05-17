@@ -32,9 +32,10 @@ class Hero:
 
 
 class Orc:
-    def __init__(self, atk, health):
+    def __init__(self, atk, health, location):
         self.atk = atk
         self.health = health
+        self.location = location
 
     def attack(self):
         self.atk = randint(1, 3)
@@ -53,6 +54,8 @@ room_nine = Room(9, True, False, False, True)
 hero_one = Hero(5, 10)
 direction = ''
 in_room = hero_one.currently_in_room()
+
+orc_one = Orc(3, 10, 1)
 
 while direction != 'q':
     direction = input("Where would you like to go? Type q to quit. ")
@@ -104,3 +107,6 @@ while direction != 'q':
             hero_one.currently_in_room()
             in_room = hero_one.currently_in_room()
             print(f"You are now in room {in_room}.")
+
+    if in_room == orc_one.location:
+        print("An orc attacks you!")
