@@ -1,6 +1,7 @@
 import random
 from random import randint
 
+
 class Room:
     def __init__(self, room_num, can_go_north, can_go_east, can_go_south, can_go_west):
         self.room_num = room_num
@@ -11,9 +12,10 @@ class Room:
 
 
 class Hero:
-    def __init__(self, current_room, health):
+    def __init__(self, current_room, health, atk):
         self.current_room = current_room
         self.health = health
+        self.atk = atk
 
     def move_north(self):
         self.current_room = self.current_room - 3
@@ -30,6 +32,11 @@ class Hero:
     def currently_in_room(self):
         return self.current_room
 
+    def attack(self):
+        self.atk = randint(1, 5)
+        print(f"You deal {self.atk} damage.")
+        return self.atk
+
 
 class Orc:
     def __init__(self, atk, health, location):
@@ -39,6 +46,8 @@ class Orc:
 
     def attack(self):
         self.atk = randint(1, 3)
+        print(f"The orc deals {self.atk} damage.")
+        return self.atk
 
 
 room_one = Room(1, False, True, True, False)
@@ -51,11 +60,15 @@ room_seven = Room(7, True, True, False, False)
 room_eight = Room(8, True, True, False, True)
 room_nine = Room(9, True, False, False, True)
 
-hero_one = Hero(5, 10)
+hero_one = Hero(5, 10, 5)
 direction = ''
 in_room = hero_one.currently_in_room()
+hero_health = hero_one.health
+new_health = hero_health
 
 orc_one = Orc(3, 10, 1)
+orc_one_health = orc_one.health
+new_orc_health = orc_one_health
 
 while direction != 'q':
     direction = input("Where would you like to go? Type q to quit. ")
@@ -110,3 +123,19 @@ while direction != 'q':
 
     if in_room == orc_one.location:
         print("An orc attacks you!")
+        new_health = new_health - orc_one.attack()
+        print(f"Your current health is {new_health}.")
+
+    if in_room == orc_one.location:
+        print("You attack the orc.")
+        new_orc_health = new_orc_health - hero_one.attack()
+        print(f"The orc's health is {new_orc_health}")
+
+    if new_health <= 0:
+        print("You died.")
+        break
+
+    if new_orc_health <= 0:
+        print("The orc is dead.")
+        print("You won!")
+        break
