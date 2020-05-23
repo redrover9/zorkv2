@@ -62,7 +62,8 @@ in_room = hero_one.currently_in_room()
 hero_health = hero_one.health
 new_health = hero_health
 
-orc_one = Orc(3, 10, 1)
+orc_location = randint(1, 9)
+orc_one = Orc(3, 10, orc_location)
 orc_one_health = orc_one.health
 new_orc_health = orc_one_health
 
