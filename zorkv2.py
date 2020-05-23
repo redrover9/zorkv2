@@ -3,12 +3,8 @@ from random import randint
 
 
 class Room:
-    def __init__(self, room_num, can_go_north, can_go_east, can_go_south, can_go_west):
+    def __init__(self, room_num):
         self.room_num = room_num
-        self.can_go_north = can_go_north
-        self.can_go_east = can_go_east
-        self.can_go_south = can_go_south
-        self.can_go_west = can_go_west
 
 
 class Hero:
@@ -50,15 +46,15 @@ class Orc:
         return self.atk
 
 
-room_one = Room(1, False, True, True, False)
-room_two = Room(2, False, True, True, True)
-room_three = Room(3, False, False, True, True)
-room_four = Room(4, True, True, True, False)
-room_five = Room(5, True, True, True, True)
-room_six = Room(6, True, False, True, True)
-room_seven = Room(7, True, True, False, False)
-room_eight = Room(8, True, True, False, True)
-room_nine = Room(9, True, False, False, True)
+room_one = Room(1)
+room_two = Room(2)
+room_three = Room(3)
+room_four = Room(4)
+room_five = Room(5)
+room_six = Room(6)
+room_seven = Room(7)
+room_eight = Room(8)
+room_nine = Room(9)
 
 hero_one = Hero(5, 10, 5)
 direction = ''
