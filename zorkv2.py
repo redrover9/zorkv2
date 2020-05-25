@@ -136,3 +136,4 @@ while direction != 'q':
         print("The orc is dead.")
         print("You won!")
         break
+print("Goodbye!")
