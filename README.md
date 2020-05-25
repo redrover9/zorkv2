@@ -10,3 +10,5 @@ TODO: Implement health/xp system for player - health implemented
 TODO: Add more rooms for player to explore
 
 TODO: Implement commands
+
+TODO: Add case insensitivity
