@@ -1,6 +1,6 @@
 import random
 from random import randint
-
+from time import sleep
 
 class Room:
     def __init__(self, room_num):
@@ -137,3 +137,4 @@ while direction != 'q':
         print("You won!")
         break
 print("Goodbye!")
+sleep(5)
