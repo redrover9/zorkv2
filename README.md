@@ -12,3 +12,5 @@ TODO: Add more rooms for player to explore
 TODO: Implement commands
 
 TODO: Add case insensitivity
+
+TODO: Add items, eg a health potion or +1 sword
