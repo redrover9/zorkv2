@@ -1,6 +1,6 @@
 import random
 from random import randint
-
+from time import sleep
 
 class Room:
     def __init__(self, room_num):
@@ -111,7 +111,7 @@ while direction != 'q':
         elif hero_one.currently_in_room() == room_six.room_num:
             print("You cannot go east")
         elif hero_one.currently_in_room() == room_nine.room_num:
-            print("You cannot go west")
+            print("You cannot go east")
         else:
             hero_one.move_east()
             hero_one.currently_in_room()
@@ -137,3 +137,4 @@ while direction != 'q':
         print("You won!")
         break
 print("Goodbye!")
+sleep(5)
